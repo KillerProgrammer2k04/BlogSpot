@@ -1,0 +1,24 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+Options -Indexes
+
+ErrorDocument 404 /blogspot/404 
+
+RewriteCond %{REQUEST_URI} ^/blogspot/includes
+RewriteRule .* /blogspot/404 [L,R=404]
+
+RewriteCond %{REQUEST_URI} ^/blogspot/db
+RewriteRule .* /blogspot/404 [L,R=404]
+
+RewriteCond %{REQUEST_URI} ^/blogspot/css/$
+RewriteRule .* /blogspot/404 [L,R=404]
+
+RewriteCond %{REQUEST_URI} ^/blogspot/js/$
+RewriteRule .* /blogspot/404 [L,R=404]
+
+RewriteCond %{REQUEST_URI} ^/blogspot/notifications/$
+RewriteRule .* /blogspot/404 [L,R=404]
